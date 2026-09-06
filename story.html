@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Behind the Idea | EcoSort AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================
+           BEHIND THE IDEA
+           ========================================= */
+
+        .story-page {
+            min-height: 100vh;
+            padding: 150px 9% 100px;
+        }
+
+        .story-hero {
+            max-width: 1000px;
+            margin: 0 auto 120px;
+        }
+
+        .story-hero .eyebrow {
+            margin-bottom: 24px;
+        }
+
+        .story-hero h1 {
+            font-size: clamp(60px, 8vw, 120px);
+            line-height: 0.92;
+            letter-spacing: -5px;
+            margin: 0 0 35px;
+        }
+
+        .story-hero h1 span {
+            color: #72d5b2;
+        }
+
+        .story-lead {
+            max-width: 760px;
+            font-size: 21px;
+            line-height: 1.7;
+            opacity: 0.72;
+        }
+
+
+        /* =========================================
+           STORY INTRO
+           ========================================= */
+
+        .story-intro {
+            max-width: 1000px;
+            margin: 0 auto 120px;
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 40px;
+        }
+
+        .story-number {
+            font-size: 15px;
+            letter-spacing: 3px;
+            color: #72d5b2;
+            font-weight: 700;
+            padding-top: 8px;
+        }
+
+        .story-intro h2 {
+            font-size: clamp(32px, 4vw, 56px);
+            line-height: 1.1;
+            margin: 0 0 25px;
+            letter-spacing: -2px;
+        }
+
+        .story-intro h2 span {
+            color: #72d5b2;
+        }
+
+        .story-intro p {
+            max-width: 720px;
+            font-size: 18px;
+            line-height: 1.8;
+            opacity: 0.68;
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================================
+           THE EVERYDAY MOMENT
+           ========================================= */
+
+        .story-moment {
+            max-width: 1000px;
+            margin: 0 auto 120px;
+        }
+
+        .moment-card {
+            position: relative;
+            overflow: hidden;
+            padding: 55px;
+            border-radius: 30px;
+            background: #162126;
+            border: 1px solid rgba(114, 213, 178, 0.14);
+        }
+
+        .moment-card::after {
+            content: "?";
+            position: absolute;
+            right: 45px;
+            top: 10px;
+            font-size: 190px;
+            font-weight: 900;
+            color: rgba(114, 213, 178, 0.055);
+            line-height: 1;
+        }
+
+        .moment-label {
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: #72d5b2;
+            margin-bottom: 25px;
+        }
+
+        .moment-card h3 {
+            position: relative;
+            z-index: 1;
+            max-width: 720px;
+            font-size: clamp(30px, 4vw, 52px);
+            line-height: 1.1;
+            margin: 0 0 25px;
+        }
+
+        .moment-card p {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.7;
+        }
+
+        .thought {
+            margin-top: 30px;
+            padding: 18px 22px;
+            display: inline-block;
+            border-radius: 14px;
+            background: rgba(114, 213, 178, 0.09);
+            color: #9de5cb;
+            font-weight: 600;
+        }
+
+
+        /* =========================================
+           JOURNEY
+           ========================================= */
+
+        .story-journey {
+            max-width: 1000px;
+            margin: 0 auto 120px;
+        }
+
+        .journey-heading {
+            margin-bottom: 55px;
+        }
+
+        .journey-heading h2 {
+            font-size: clamp(38px, 5vw, 64px);
+            line-height: 1;
+            margin: 15px 0 0;
+            letter-spacing: -3px;
+        }
+
+        .journey-heading h2 span {
+            color: #72d5b2;
+        }
+
+        .journey-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .journey-card {
+            min-height: 300px;
+            padding: 30px;
+            border-radius: 25px;
+            background: #141d22;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .journey-card:hover {
+            transform: translateY(-7px);
+            border-color: rgba(114, 213, 178, 0.28);
+        }
+
+        .journey-card.featured {
+            background: #203f35;
+            border-color: transparent;
+        }
+
+        .journey-step {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #72d5b2;
+            font-weight: 700;
+            margin-bottom: 55px;
+        }
+
+        .journey-card h3 {
+            font-size: 28px;
+            margin: 0 0 15px;
+        }
+
+        .journey-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            opacity: 0.68;
+        }
+
+
+        /* =========================================
+           WHY AI
+           ========================================= */
+
+        .why-ai {
+            max-width: 1000px;
+            margin: 0 auto 120px;
+            padding: 65px;
+            border-radius: 32px;
+            background: linear-gradient(
+                135deg,
+                #14221f,
+                #172126
+            );
+            border: 1px solid rgba(114, 213, 178, 0.12);
+        }
+
+        .why-ai h2 {
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1;
+            letter-spacing: -3px;
+            margin: 15px 0 25px;
+        }
+
+        .why-ai h2 span {
+            color: #72d5b2;
+        }
+
+        .why-ai > p {
+            max-width: 720px;
+            font-size: 18px;
+            line-height: 1.75;
+            opacity: 0.68;
+        }
+
+        .ai-points {
+            margin-top: 45px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .ai-point {
+            padding: 22px;
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.035);
+        }
+
+        .ai-point strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .ai-point span {
+            font-size: 14px;
+            line-height: 1.5;
+            opacity: 0.6;
+        }
+
+
+        /* =========================================
+           FINAL MESSAGE
+           ========================================= */
+
+        .story-ending {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 40px 0 30px;
+        }
+
+        .story-ending h2 {
+            font-size: clamp(40px, 6vw, 76px);
+            line-height: 1;
+            letter-spacing: -4px;
+            margin: 20px 0 25px;
+        }
+
+        .story-ending h2 span {
+            color: #72d5b2;
+        }
+
+        .story-ending p {
+            max-width: 650px;
+            margin: 0 auto 35px;
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.65;
+        }
+
+
+        /* =========================================
+           LIGHT MODE
+           ========================================= */
+
+        body:not(.dark-mode) .moment-card,
+        body:not(.dark-mode) .journey-card {
+            background: #ffffff;
+            border-color: rgba(30, 80, 100, 0.1);
+        }
+
+        body:not(.dark-mode) .journey-card.featured {
+            background: #dff4eb;
+        }
+
+        body:not(.dark-mode) .why-ai {
+            background: #eaf6ff;
+            border-color: rgba(50, 120, 150, 0.12);
+        }
+
+        body:not(.dark-mode) .ai-point {
+            background: rgba(20, 80, 110, 0.05);
+        }
+
+        body:not(.dark-mode) .thought {
+            background: #e3f5ee;
+            color: #24705b;
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+
+        @media (max-width: 800px) {
+
+            .story-page {
+                padding: 120px 6% 70px;
+            }
+
+            .story-hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .story-intro {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .journey-grid,
+            .ai-points {
+                grid-template-columns: 1fr;
+            }
+
+            .moment-card,
+            .why-ai {
+                padding: 35px 28px;
+            }
+
+            .moment-card::after {
+                font-size: 120px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         HAMBURGER
+         ========================================= -->
+
+    <button class="hamburger" id="menuButton" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+
+    <!-- =========================================
+         SIDEBAR
+         ========================================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            ×
+        </button>
+
+        <div class="sidebar-logo">
+            <span>♻</span>
+            EcoSort AI
+        </div>
+
+        <div class="sidebar-label">
+            EXPLORE
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                <span>01</span>
+                Home
+            </a>
+
+            <a href="introduction.html">
+                <span>02</span>
+                Introduction
+            </a>
+
+            <a href="idea.html">
+                <span>03</span>
+                The Idea
+            </a>
+
+            <a href="story.html" class="active">
+                <span>04</span>
+                Behind the Idea
+            </a>
+
+            <a href="problem.html">
+                <span>05</span>
+                The Problem
+            </a>
+
+            <a href="contact.html">
+    <span>06</span>
+    Find Help
+</a>
+
+<a href="portal.html"
+   class="portal-link">
+
+    <span>07</span>
+    Segregate Waste
+
+</a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-label">
+                APPEARANCE
+            </div>
+
+            <button class="theme-toggle" id="themeToggle">
+
+                <span id="themeIcon">☀</span>
+
+                <span id="themeText">
+                    Light Mode
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- OVERLAY -->
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+
+    <!-- =========================================
+         PAGE
+         ========================================= -->
+
+    <main class="story-page">
+
+
+        <!-- HERO -->
+
+        <section class="story-hero">
+
+            <div class="eyebrow">
+                BEHIND THE IDEA
+            </div>
+
+            <h1>
+                It started with
+                <span>one question.</span>
+            </h1>
+
+            <p class="story-lead">
+                Not every waste item comes with instructions.
+                Sometimes the hardest part isn't throwing something away.
+                It's knowing what to do with it in the first place.
+            </p>
+
+        </section>
+
+
+        <!-- INTRO -->
+
+        <section class="story-intro">
+
+            <div class="story-number">
+                01 / THE MOMENT
+            </div>
+
+            <div>
+
+                <h2>
+                    The bin is right there.
+                    <span>So why is the decision so hard?</span>
+                </h2>
+
+                <p>
+                    Imagine finishing a drink and holding the empty bottle.
+                    Easy, right?
+                </p>
+
+                <p>
+                    Now imagine an old charger, a food-stained pizza box,
+                    a used tissue, a battery, or a packet with multiple
+                    materials.
+                </p>
+
+                <p>
+                    Suddenly, that simple decision becomes:
+                    <strong>
+                        "Wait... where does this actually go?"
+                    </strong>
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- EVERYDAY MOMENT -->
+
+        <section class="story-moment">
+
+            <div class="moment-card">
+
+                <div class="moment-label">
+                    THE EVERYDAY STRUGGLE
+                </div>
+
+                <h3>
+                    "I know I should segregate it...
+                    but I don't know <em>how.</em>"
+                </h3>
+
+                <p>
+                    This is where the idea behind EcoSort AI begins.
+                    Waste segregation isn't always a matter of willingness.
+                    Sometimes people simply don't have enough information
+                    at the moment they need it.
+                </p>
+
+                <div class="thought">
+                    🤔 "Which bin? What category? What now?"
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- JOURNEY -->
+
+        <section class="story-journey">
+
+            <div class="journey-heading">
+
+                <div class="eyebrow">
+                    HOW THE IDEA EVOLVED
+                </div>
+
+                <h2>
+                    From confusion to
+                    <span>a simple solution.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="journey-grid">
+
+                <div class="journey-card">
+
+                    <div class="journey-step">
+                        01 / NOTICE
+                    </div>
+
+                    <h3>
+                        We noticed the confusion.
+                    </h3>
+
+                    <p>
+                        Everyday waste can look simple, but deciding
+                        how and where to dispose of it isn't always obvious.
+                    </p>
+
+                </div>
+
+
+                <div class="journey-card featured">
+
+                    <div class="journey-step">
+                        02 / ASK
+                    </div>
+
+                    <h3>
+                        What if AI could help?
+                    </h3>
+
+                    <p>
+                        Instead of searching through complicated
+                        information every time, why not let someone
+                        simply show the item and ask?
+                    </p>
+
+                </div>
+
+
+                <div class="journey-card">
+
+                    <div class="journey-step">
+                        03 / BUILD
+                    </div>
+
+                    <h3>
+                        EcoSort AI.
+                    </h3>
+
+                    <p>
+                        An approachable AI-powered idea that connects
+                        image recognition with understandable waste
+                        segregation guidance.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHY AI -->
+
+        <section class="why-ai">
+
+            <div class="eyebrow">
+                WHY AI?
+            </div>
+
+            <h2>
+                Because asking should be
+                <span>easy.</span>
+            </h2>
+
+            <p>
+                EcoSort AI is designed around a simple interaction:
+                show the waste item, understand its likely category,
+                and get guidance on what to do next.
+            </p>
+
+
+            <div class="ai-points">
+
+                <div class="ai-point">
+                    <strong>👀 See</strong>
+                    <span>
+                        Upload an image of the item you're unsure about.
+                    </span>
+                </div>
+
+                <div class="ai-point">
+                    <strong>🧠 Understand</strong>
+                    <span>
+                        AI helps interpret the item and its likely
+                        waste category.
+                    </span>
+                </div>
+
+                <div class="ai-point">
+                    <strong>♻️ Act</strong>
+                    <span>
+                        Use the result to make a more informed
+                        disposal decision.
+                    </span>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ENDING -->
+
+        <section class="story-ending">
+
+            <div class="eyebrow">
+                THE IDEA IN ONE LINE
+            </div>
+
+            <h2>
+                Make the right choice
+                <span>easier.</span>
+            </h2>
+
+            <p>
+                EcoSort AI isn't about making waste complicated.
+                It's about making the information needed to deal with
+                it responsibly more accessible.
+            </p>
+
+            <a href="problem.html" class="primary-button">
+                Understand The Problem →
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            ♻ EcoSort AI
+        </div>
+
+        <div>
+            AI for Sustainability
+        </div>
+
+        <div>
+            SDG 12
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

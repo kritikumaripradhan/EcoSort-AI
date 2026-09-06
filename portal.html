@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Segregate Waste | EcoSort AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================
+           PORTAL PAGE
+           ========================= */
+
+        .portal-page {
+            min-height: 100vh;
+            padding: 110px 7% 80px;
+        }
+
+        .portal-header {
+            max-width: 850px;
+            margin-bottom: 55px;
+        }
+
+        .portal-tag {
+            display: inline-block;
+            padding: 8px 14px;
+            border-radius: 30px;
+            background: rgba(76, 175, 80, 0.12);
+            color: #5f9f69;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            margin-bottom: 18px;
+        }
+
+        .portal-header h1 {
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 1.05;
+            margin: 0 0 20px;
+            letter-spacing: -2px;
+        }
+
+        .portal-header p {
+            max-width: 680px;
+            font-size: 18px;
+            line-height: 1.7;
+            opacity: 0.72;
+        }
+
+        .portal-workspace {
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        /* Upload Box */
+
+        .upload-box {
+            border: 1.5px dashed rgba(100, 130, 135, 0.55);
+            border-radius: 28px;
+            min-height: 390px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 40px;
+            cursor: pointer;
+            transition: 0.3s ease;
+            background: rgba(255, 255, 255, 0.025);
+        }
+
+        .upload-box:hover {
+            transform: translateY(-3px);
+            border-color: #6eaa78;
+            background: rgba(110, 170, 120, 0.04);
+        }
+
+        .upload-content {
+            max-width: 500px;
+        }
+
+        .upload-icon {
+            width: 78px;
+            height: 78px;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            font-size: 35px;
+            background: rgba(110, 170, 120, 0.12);
+        }
+
+        .upload-content h2 {
+            margin: 0 0 12px;
+            font-size: 28px;
+        }
+
+        .upload-content p {
+            margin: 0 0 25px;
+            opacity: 0.65;
+            line-height: 1.6;
+        }
+
+        .browse-btn {
+            display: inline-block;
+            padding: 13px 22px;
+            border-radius: 13px;
+            background: #6f9f77;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .browse-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        #imageInput {
+            display: none;
+        }
+
+        /* Preview */
+
+        .preview-section {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .preview-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 25px;
+            border-radius: 25px;
+            background: rgba(128, 128, 128, 0.08);
+        }
+
+        .preview-image-wrapper {
+            min-height: 350px;
+            border-radius: 20px;
+            overflow: hidden;
+            background: rgba(0, 0, 0, 0.08);
+        }
+
+        .preview-image-wrapper img {
+            width: 100%;
+            height: 100%;
+            min-height: 350px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .preview-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 15px;
+        }
+
+        .preview-info h2 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .preview-info p {
+            opacity: 0.65;
+            line-height: 1.6;
+        }
+
+        .analyze-btn {
+            border: none;
+            padding: 15px 24px;
+            border-radius: 14px;
+            background: #6f9f77;
+            color: white;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: 0.2s;
+        }
+
+        .analyze-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Result */
+
+        .result-section {
+            display: none;
+            margin-top: 45px;
+        }
+
+        .result-header {
+            margin-bottom: 25px;
+        }
+
+        .result-header span {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.5;
+        }
+
+        .result-header h2 {
+            font-size: 38px;
+            margin: 8px 0;
+        }
+
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+        }
+
+        .result-card {
+            padding: 25px;
+            border-radius: 22px;
+            background: rgba(128, 128, 128, 0.08);
+        }
+
+        .result-card small {
+            display: block;
+            opacity: 0.5;
+            margin-bottom: 12px;
+        }
+
+        .result-card strong {
+            font-size: 20px;
+        }
+
+        .bin-card {
+            border: 1px solid rgba(110, 170, 120, 0.35);
+        }
+
+        .bin-name {
+            color: #6f9f77;
+        }
+
+        .instructions {
+            margin-top: 18px;
+            padding: 30px;
+            border-radius: 22px;
+            background: rgba(110, 170, 120, 0.08);
+        }
+
+        .instructions h3 {
+            margin-top: 0;
+            font-size: 22px;
+        }
+
+        .instructions p {
+            line-height: 1.7;
+            opacity: 0.72;
+        }
+
+        .action-row {
+            display: flex;
+            gap: 12px;
+            margin-top: 25px;
+        }
+
+        .secondary-btn {
+            padding: 13px 20px;
+            border-radius: 12px;
+            border: 1px solid rgba(128, 128, 128, 0.3);
+            background: transparent;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .help-btn {
+            padding: 13px 20px;
+            border-radius: 12px;
+            background: #6f9f77;
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Dark mode */
+
+        body.dark-mode .upload-box {
+            background: rgba(255, 255, 255, 0.02);
+            border-color: rgba(220, 235, 233, 0.25);
+        }
+
+        body.dark-mode .preview-card,
+        body.dark-mode .result-card {
+            background: rgba(255, 255, 255, 0.045);
+        }
+
+        /* Responsive */
+
+        @media (max-width: 800px) {
+
+            .portal-page {
+                padding: 100px 5% 60px;
+            }
+
+            .preview-card {
+                grid-template-columns: 1fr;
+            }
+
+            .result-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .upload-box {
+                min-height: 330px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hamburger -->
+
+    <button class="hamburger" id="menuButton" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <button class="close-menu" id="closeMenu">
+            ×
+        </button>
+
+        <div class="sidebar-logo">
+            EcoSort <span>AI</span>
+        </div>
+
+        <nav>
+            <a href="index.html">
+                <span>01</span>
+                Home
+            </a>
+
+            <a href="introduction.html">
+                <span>02</span>
+                Introduction
+            </a>
+
+            <a href="idea.html">
+                <span>03</span>
+                The Idea
+            </a>
+
+            <a href="story.html">
+                <span>04</span>
+                Behind the Idea
+            </a>
+
+            <a href="problem.html">
+                <span>05</span>
+                The Problem
+            </a>
+
+            <a href="contact.html">
+                <span>06</span>
+                Find Help
+            </a>
+
+            <a href="portal.html" class="portal-link">
+                <span>07</span>
+                Segregate Waste
+            </a>
+        </nav>
+
+        <button id="themeToggle" class="theme-toggle">
+            <span id="themeIcon">☀</span>
+            <span id="themeText">Light Mode</span>
+        </button>
+
+    </aside>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+
+    <!-- Main -->
+
+    <main class="portal-page">
+
+        <header class="portal-header">
+
+            <div class="portal-tag">
+                ECO SORT AI · WASTE ANALYSIS
+            </div>
+
+            <h1>
+                Don't guess.<br>
+                <span>Sort it right.</span>
+            </h1>
+
+            <p>
+                Upload a picture of everyday waste and EcoSort AI
+                will help you understand what it is, where it belongs,
+                and what you should do with it.
+            </p>
+
+        </header>
+
+
+        <section class="portal-workspace">
+
+            <!-- Upload -->
+
+            <div class="upload-box" id="uploadBox">
+
+                <div class="upload-content">
+
+                    <div class="upload-icon">
+                        ♻
+                    </div>
+
+                    <h2>
+                        Upload a waste image
+                    </h2>
+
+                    <p>
+                        Take a photo or choose an existing image
+                        of the waste you want to identify.
+                    </p>
+
+                    <label for="imageInput" class="browse-btn">
+                        Choose Image
+                    </label>
+
+                    <input
+                        type="file"
+                        id="imageInput"
+                        accept="image/*"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- Preview -->
+
+            <section class="preview-section" id="previewSection">
+
+                <div class="preview-card">
+
+                    <div class="preview-image-wrapper">
+                        <img
+                            id="previewImage"
+                            src=""
+                            alt="Uploaded waste"
+                        >
+                    </div>
+
+                    <div class="preview-info">
+
+                        <small>
+                            IMAGE READY
+                        </small>
+
+                        <h2>
+                            Ready to analyze
+                        </h2>
+
+                        <p>
+                            EcoSort AI will examine the uploaded
+                            image and suggest the most appropriate
+                            waste category and disposal method.
+                        </p>
+
+                        <button
+                            class="analyze-btn"
+                            id="analyzeBtn"
+                        >
+                            Analyze Waste →
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- Result -->
+
+            <section class="result-section" id="resultSection">
+
+                <div class="result-header">
+
+                    <span>
+                        Analysis complete
+                    </span>
+
+                    <h2 id="resultTitle">
+                        Waste identified
+                    </h2>
+
+                </div>
+
+
+                <div class="result-grid">
+
+                    <div class="result-card">
+
+                        <small>
+                            DETECTED ITEM
+                        </small>
+
+                        <strong id="detectedItem">
+                            Plastic Bottle
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-card">
+
+                        <small>
+                            CATEGORY
+                        </small>
+
+                        <strong id="wasteCategory">
+                            Dry / Recyclable
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-card bin-card">
+
+                        <small>
+                            RECOMMENDED BIN
+                        </small>
+
+                        <strong
+                            class="bin-name"
+                            id="recommendedBin"
+                        >
+                            Dry Waste
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <div class="instructions">
+
+                    <h3>
+                        What should you do?
+                    </h3>
+
+                    <p id="disposalInstructions">
+                        Empty the bottle, rinse it if possible,
+                        and place it with your dry/recyclable waste.
+                        Avoid mixing it with wet waste.
+                    </p>
+
+                    <div class="action-row">
+
+                        <button
+                            class="secondary-btn"
+                            id="resetBtn"
+                        >
+                            Analyze Another
+                        </button>
+
+                        <a
+                            href="contact.html"
+                            class="help-btn"
+                        >
+                            Find Local Help
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <script>
+
+        /* =========================
+           PORTAL FUNCTIONALITY
+           ========================= */
+
+        const imageInput =
+            document.getElementById("imageInput");
+
+        const uploadBox =
+            document.getElementById("uploadBox");
+
+        const previewSection =
+            document.getElementById("previewSection");
+
+        const previewImage =
+            document.getElementById("previewImage");
+
+        const analyzeBtn =
+            document.getElementById("analyzeBtn");
+
+        const resultSection =
+            document.getElementById("resultSection");
+
+        const resetBtn =
+            document.getElementById("resetBtn");
+
+
+        /* Click upload area */
+
+        uploadBox.addEventListener("click", function(e) {
+
+            if (
+                e.target.tagName !== "LABEL" &&
+                e.target.tagName !== "INPUT"
+            ) {
+                imageInput.click();
+            }
+
+        });
+
+
+        /* Image selected */
+
+        imageInput.addEventListener("change", function() {
+
+            const file = this.files[0];
+
+            if (!file) return;
+
+            const reader = new FileReader();
+
+            reader.onload = function(e) {
+
+                previewImage.src = e.target.result;
+
+                uploadBox.style.display = "none";
+
+                previewSection.style.display = "block";
+
+                resultSection.style.display = "none";
+
+            };
+
+            reader.readAsDataURL(file);
+
+        });
+
+
+       /* Analyze */
+
+analyzeBtn.addEventListener("click", async function () {
+
+    const file = imageInput.files[0];
+
+    if (!file) {
+        alert("Please choose an image first.");
+        return;
+    }
+
+    analyzeBtn.textContent = "Analyzing...";
+    analyzeBtn.disabled = true;
+
+    const formData = new FormData();
+    formData.append("image", file);
+
+    try {
+
+        const response = await fetch("http://localhost:8080/api/detect", {
+            method: "POST",
+            body: formData
+        });
+
+        const data = await response.json();
+
+        if (!response.ok) {
+            throw new Error(data.error || "Something went wrong");
+        }
+
+        document.getElementById("detectedItem").textContent = data.item;
+        document.getElementById("wasteCategory").textContent = data.category;
+        document.getElementById("recommendedBin").textContent = data.bin;
+        document.getElementById("disposalInstructions").textContent =
+            data.instructions;
+
+        resultSection.style.display = "block";
+
+        resultSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+        });
+
+    } catch (error) {
+
+        console.error(error);
+        alert("Could not connect to EcoSort AI backend.");
+
+    } finally {
+
+        analyzeBtn.textContent = "Analyze Waste →";
+        analyzeBtn.disabled = false;
+
+    }
+
+});
+
+
+        /* Reset */
+
+        resetBtn.addEventListener("click", function() {
+
+            imageInput.value = "";
+
+            previewImage.src = "";
+
+            previewSection.style.display = "none";
+
+            resultSection.style.display = "none";
+
+            uploadBox.style.display = "flex";
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        });
+
+    </script>
+
+
+    <!-- Shared EcoSort functionality -->
+
+    <script src="script.js"></script>
+
+</body>
+</html>

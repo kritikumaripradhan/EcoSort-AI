@@ -1,0 +1,2248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Find Help | EcoSort AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================
+           CONTACT PAGE
+        ========================================= */
+
+        .contact-page {
+            min-height: 100vh;
+            padding: 120px 8vw 80px;
+        }
+
+        .contact-hero {
+            max-width: 850px;
+            margin: 0 auto 70px;
+            text-align: center;
+        }
+
+        .contact-eyebrow {
+            font-size: 12px;
+            letter-spacing: 3px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            opacity: 0.65;
+        }
+
+        .contact-hero h1 {
+            font-size: clamp(42px, 6vw, 78px);
+            line-height: 1;
+            margin: 0 0 25px;
+            letter-spacing: -3px;
+        }
+
+        .contact-hero h1 span {
+            display: block;
+            color: #91b89b;
+        }
+
+        .contact-hero p {
+            max-width: 680px;
+            margin: auto;
+            font-size: 17px;
+            line-height: 1.8;
+            opacity: 0.7;
+        }
+
+        /* =========================================
+           SELECTOR
+        ========================================= */
+
+        .contact-selector {
+            max-width: 1100px;
+            margin: 0 auto 50px;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .selector-step {
+            padding: 28px;
+            border: 1px solid rgba(130, 160, 150, 0.22);
+            border-radius: 24px;
+            background: rgba(255,255,255,0.035);
+        }
+
+        .step-number {
+            font-size: 12px;
+            letter-spacing: 2px;
+            font-weight: 700;
+            opacity: 0.5;
+            margin-bottom: 18px;
+        }
+
+        .selector-step label {
+            display: block;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .selector-step select {
+            width: 100%;
+            padding: 15px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(130, 160, 150, 0.3);
+            background: #182328;
+            color: #edf4f0;
+            font-size: 14px;
+            outline: none;
+            cursor: pointer;
+        }
+
+        .selector-step select:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
+        .selector-step select:focus {
+            border-color: #91b89b;
+        }
+
+        /* =========================================
+           RESULT
+        ========================================= */
+
+        .helpline-result {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .result-placeholder,
+        .helpline-card {
+            border: 1px solid rgba(130, 160, 150, 0.22);
+            border-radius: 28px;
+            padding: 45px;
+            background: rgba(255,255,255,0.035);
+        }
+
+        .result-placeholder {
+            text-align: center;
+        }
+
+        .result-icon {
+            width: 64px;
+            height: 64px;
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+            background: rgba(145,184,155,0.12);
+            font-size: 25px;
+        }
+
+        .result-placeholder h2 {
+            font-size: 28px;
+            margin-bottom: 12px;
+        }
+
+        .result-placeholder p {
+            max-width: 600px;
+            margin: auto;
+            line-height: 1.7;
+            opacity: 0.65;
+        }
+
+        .helpline-card {
+            max-width: 720px;
+            margin: 0 auto;
+        }
+
+        .result-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 28px;
+        }
+
+        .verified-label {
+            font-size: 11px;
+            letter-spacing: 2px;
+            font-weight: 800;
+            color: #91b89b;
+        }
+
+        .phone-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: rgba(145,184,155,0.12);
+        }
+
+        .result-category {
+            font-size: 13px;
+            opacity: 0.55;
+            margin-bottom: 8px;
+        }
+
+        .helpline-card h2 {
+            font-size: clamp(32px, 5vw, 52px);
+            margin: 0 0 25px;
+            letter-spacing: -2px;
+        }
+
+        .helpline-meta {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            padding: 18px 0;
+            border-top: 1px solid rgba(130,160,150,0.15);
+            border-bottom: 1px solid rgba(130,160,150,0.15);
+        }
+
+        .helpline-meta strong {
+            font-size: 13px;
+        }
+
+        .helpline-meta span {
+            font-size: 13px;
+            opacity: 0.55;
+        }
+
+        .result-note {
+            line-height: 1.7;
+            font-size: 14px;
+            opacity: 0.65;
+            margin: 22px 0;
+        }
+
+        .call-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 14px 25px;
+            border-radius: 999px;
+
+            background: #91b89b;
+            color: #101819;
+
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+
+            transition: transform 0.2s ease;
+        }
+
+        .call-button:hover {
+            transform: translateY(-2px);
+        }
+
+        .back-button {
+            display: block;
+            width: fit-content;
+            margin: 45px auto 0;
+
+            color: inherit;
+            text-decoration: none;
+            opacity: 0.6;
+            font-size: 14px;
+        }
+
+        .back-button:hover {
+            opacity: 1;
+        }
+
+        /* =========================================
+           LIGHT MODE
+        ========================================= */
+
+        body:not(.dark-mode) .selector-step select {
+            background: #ffffff;
+            color: #172328;
+        }
+
+        body:not(.dark-mode) .selector-step,
+        body:not(.dark-mode) .result-placeholder,
+        body:not(.dark-mode) .helpline-card {
+            background: rgba(255,255,255,0.8);
+            border-color: rgba(40,60,60,0.12);
+        }
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 800px) {
+
+            .contact-page {
+                padding: 110px 20px 60px;
+            }
+
+            .contact-selector {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-hero h1 {
+                letter-spacing: -2px;
+            }
+
+            .selector-step,
+            .result-placeholder,
+            .helpline-card {
+                padding: 28px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+<!-- =========================================
+     HAMBURGER
+========================================= -->
+
+<button class="hamburger"
+        id="menuButton"
+        aria-label="Open menu">
+
+    <span></span>
+    <span></span>
+    <span></span>
+
+</button>
+
+
+<!-- =========================
+     SIDEBAR
+========================= -->
+
+<aside class="sidebar" id="sidebar">
+
+    <!-- CLOSE BUTTON -->
+    <button
+        class="close-menu"
+        id="closeMenu"
+        aria-label="Close menu">
+        ×
+    </button>
+
+
+    <!-- LOGO -->
+    <div class="sidebar-logo">
+
+        <div class="logo-mark">
+            ♻
+        </div>
+
+        <div>
+            <strong>EcoSort</strong>
+            <small>AI</small>
+        </div>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+    <div class="sidebar-label">
+        EXPLORE
+    </div>
+
+
+    <nav>
+
+        <a href="index.html">
+            <span>01</span>
+            Home
+        </a>
+
+        <a href="introduction.html">
+            <span>02</span>
+            Introduction
+        </a>
+
+        <a href="idea.html">
+            <span>03</span>
+            The Idea
+        </a>
+
+        <a href="story.html">
+            <span>04</span>
+            Behind the Idea
+        </a>
+
+        <a href="problem.html">
+            <span>05</span>
+            The Problem
+        </a>
+
+        <!-- CURRENT PAGE -->
+        <a href="contact.html" class="active">
+            <span>06</span>
+            Find Help
+        </a>
+
+        <!-- NORMAL LINK — NO BOX -->
+        <a href="portal.html" class="portal-link">
+            <span>07</span>
+            Segregate Waste
+        </a>
+
+    </nav>
+
+
+    <!-- =========================
+         APPEARANCE
+    ========================= -->
+
+    <div class="sidebar-bottom">
+
+        <div class="sidebar-label">
+            APPEARANCE
+        </div>
+
+
+        <div class="theme-control">
+
+            <!-- THEME SWITCH -->
+
+            <button
+                class="theme-switch"
+                id="themeToggle"
+                type="button"
+                aria-label="Toggle theme">
+
+                <span class="switch-track">
+
+                    <span class="switch-thumb"></span>
+
+                </span>
+
+            </button>
+
+
+            <!-- CURRENT MODE -->
+
+            <span id="themeText">
+                Dark Mode
+            </span>
+
+        </div>
+
+    </div>
+
+</aside>
+
+    <!-- =========================================
+         SELECTORS
+    ========================================= -->
+
+    <section class="contact-selector">
+
+
+        <!-- STATE -->
+
+        <div class="selector-step">
+
+            <div class="step-number">
+                01
+            </div>
+
+            <label for="stateSelect">
+                State / Union Territory
+            </label>
+
+            <select id="stateSelect">
+
+                <option value="">
+                    Select your state
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- CITY -->
+
+        <div class="selector-step">
+
+            <div class="step-number">
+                02
+            </div>
+
+            <label for="citySelect">
+                City
+            </label>
+
+            <select id="citySelect"
+                    disabled>
+
+                <option value="">
+                    Select state first
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <!-- WASTE -->
+
+        <div class="selector-step">
+
+            <div class="step-number">
+                03
+            </div>
+
+            <label for="wasteSelect">
+                Type of Waste
+            </label>
+
+            <select id="wasteSelect"
+                    disabled>
+
+                <option value="">
+                    Select city first
+                </option>
+
+            </select>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================================
+         RESULT
+    ========================================= -->
+
+    <section class="helpline-result"
+             id="helplineResult">
+
+        <div class="result-placeholder">
+
+            <div class="result-icon">
+                ☎
+            </div>
+
+            <h2>
+                Find your waste helpline
+            </h2>
+
+            <p>
+                Select your location and waste type
+                to see the available contact information.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <a href="problem.html"
+       class="back-button">
+
+        ← Back to The Problem
+
+    </a>
+
+
+</main>
+
+
+<!-- =========================================
+     DATABASE + LOGIC
+========================================= -->
+
+<script>
+
+/* =========================================
+   WASTE TYPES
+========================================= */
+
+const wasteTypes = {
+
+    municipal: "Municipal / Solid Waste",
+
+    wet: "Wet / Organic Waste",
+
+    dry: "Dry / Recyclable Waste",
+
+    ewaste: "E-Waste",
+
+    medical: "Biomedical / Medical Waste",
+
+    hazardous: "Household Hazardous Waste",
+
+    construction: "Construction & Demolition Waste"
+
+};
+
+
+/* =========================================
+   STATES + CITIES
+========================================= */
+
+const locations = {
+
+    "andhra-pradesh": {
+        name: "Andhra Pradesh",
+        cities: [
+            "Visakhapatnam",
+            "Vijayawada",
+            "Guntur",
+            "Nellore",
+            "Tirupati",
+            "Kurnool",
+            "Rajahmundry",
+            "Kakinada",
+            "Kadapa",
+            "Anantapur",
+            "Eluru",
+            "Ongole",
+            "Machilipatnam",
+            "Srikakulam",
+            "Vizianagaram",
+            "Chittoor",
+            "Hindupur",
+            "Tenali",
+            "Proddatur",
+            "Nandyal"
+        ]
+    },
+
+
+    "arunachal-pradesh": {
+        name: "Arunachal Pradesh",
+        cities: [
+            "Itanagar",
+            "Naharlagun",
+            "Pasighat",
+            "Tawang",
+            "Bomdila",
+            "Ziro",
+            "Aalo",
+            "Tezu",
+            "Namsai",
+            "Roing",
+            "Daporijo",
+            "Seppa",
+            "Khonsa",
+            "Changlang"
+        ]
+    },
+
+
+    "assam": {
+        name: "Assam",
+        cities: [
+            "Guwahati",
+            "Dibrugarh",
+            "Silchar",
+            "Jorhat",
+            "Tezpur",
+            "Nagaon",
+            "Tinsukia",
+            "Sivasagar",
+            "Bongaigaon",
+            "Dhubri",
+            "Diphu",
+            "North Lakhimpur",
+            "Goalpara",
+            "Barpeta",
+            "Karimganj",
+            "Hailakandi"
+        ]
+    },
+
+
+    "bihar": {
+        name: "Bihar",
+        cities: [
+            "Patna",
+            "Gaya",
+            "Muzaffarpur",
+            "Bhagalpur",
+            "Darbhanga",
+            "Purnia",
+            "Ara",
+            "Begusarai",
+            "Katihar",
+            "Munger",
+            "Bihar Sharif",
+            "Chhapra",
+            "Samastipur",
+            "Sasaram",
+            "Dehri",
+            "Hajipur",
+            "Motihari",
+            "Bettiah",
+            "Siwan",
+            "Jehanabad",
+            "Buxar",
+            "Sitamarhi",
+            "Saharsa",
+            "Madhepura",
+            "Araria",
+            "Jamui",
+            "Lakhisarai",
+            "Nawada",
+            "Aurangabad",
+            "Supaul"
+        ]
+    },
+
+
+    "chhattisgarh": {
+        name: "Chhattisgarh",
+        cities: [
+            "Raipur",
+            "Bhilai",
+            "Bilaspur",
+            "Korba",
+            "Durg",
+            "Rajnandgaon",
+            "Jagdalpur",
+            "Ambikapur",
+            "Raigarh",
+            "Dhamtari",
+            "Mahasamund",
+            "Kanker",
+            "Kawardha",
+            "Janjgir",
+            "Chirmiri"
+        ]
+    },
+
+
+    "goa": {
+        name: "Goa",
+        cities: [
+            "Panaji",
+            "Margao",
+            "Vasco da Gama",
+            "Mapusa",
+            "Ponda",
+            "Bicholim",
+            "Curchorem",
+            "Sanquelim",
+            "Canacona",
+            "Quepem"
+        ]
+    },
+
+
+    "gujarat": {
+        name: "Gujarat",
+        cities: [
+            "Ahmedabad",
+            "Surat",
+            "Vadodara",
+            "Rajkot",
+            "Bhavnagar",
+            "Jamnagar",
+            "Gandhinagar",
+            "Junagadh",
+            "Anand",
+            "Nadiad",
+            "Bharuch",
+            "Navsari",
+            "Vapi",
+            "Morbi",
+            "Mehsana",
+            "Palanpur",
+            "Porbandar",
+            "Bhuj",
+            "Godhra",
+            "Surendranagar",
+            "Gandhidham",
+            "Botad",
+            "Amreli",
+            "Dahod",
+            "Himmatnagar"
+        ]
+    },
+
+
+    "haryana": {
+        name: "Haryana",
+        cities: [
+            "Gurugram",
+            "Faridabad",
+            "Panipat",
+            "Ambala",
+            "Hisar",
+            "Rohtak",
+            "Karnal",
+            "Sonipat",
+            "Yamunanagar",
+            "Panchkula",
+            "Bhiwani",
+            "Sirsa",
+            "Rewari",
+            "Palwal",
+            "Jind",
+            "Kaithal",
+            "Fatehabad",
+            "Kurukshetra",
+            "Bahadurgarh",
+            "Narnaul"
+        ]
+    },
+
+
+    "himachal-pradesh": {
+        name: "Himachal Pradesh",
+        cities: [
+            "Shimla",
+            "Dharamshala",
+            "Solan",
+            "Mandi",
+            "Kullu",
+            "Manali",
+            "Hamirpur",
+            "Una",
+            "Bilaspur",
+            "Chamba",
+            "Nahan",
+            "Baddi",
+            "Kangra",
+            "Palampur",
+            "Sundernagar",
+            "Kasauli",
+            "Paonta Sahib"
+        ]
+    },
+
+
+    "jharkhand": {
+        name: "Jharkhand",
+        cities: [
+            "Ranchi",
+            "Jamshedpur",
+            "Dhanbad",
+            "Bokaro",
+            "Deoghar",
+            "Hazaribagh",
+            "Giridih",
+            "Ramgarh",
+            "Phusro",
+            "Medininagar",
+            "Chaibasa",
+            "Dumka",
+            "Sahibganj",
+            "Gumla",
+            "Lohardaga",
+            "Chatra",
+            "Koderma",
+            "Pakur",
+            "Jamtara",
+            "Garhwa",
+            "Simdega"
+        ]
+    },
+
+
+    "karnataka": {
+        name: "Karnataka",
+        cities: [
+            "Bengaluru",
+            "Mysuru",
+            "Mangaluru",
+            "Hubballi",
+            "Belagavi",
+            "Davanagere",
+            "Ballari",
+            "Kalaburagi",
+            "Shivamogga",
+            "Tumakuru",
+            "Udupi",
+            "Hassan",
+            "Vijayapura",
+            "Raichur",
+            "Bidar",
+            "Chitradurga",
+            "Kolar",
+            "Mandya",
+            "Hospet",
+            "Madikeri",
+            "Chikkamagaluru",
+            "Bagalkot",
+            "Gadag",
+            "Yadgir",
+            "Karwar"
+        ]
+    },
+
+
+    "kerala": {
+        name: "Kerala",
+        cities: [
+            "Thiruvananthapuram",
+            "Kochi",
+            "Kozhikode",
+            "Thrissur",
+            "Kollam",
+            "Kannur",
+            "Alappuzha",
+            "Kottayam",
+            "Palakkad",
+            "Malappuram",
+            "Kasaragod",
+            "Pathanamthitta",
+            "Idukki",
+            "Varkala",
+            "Muvattupuzha",
+            "Perinthalmanna",
+            "Thalassery",
+            "Changanassery"
+        ]
+    },
+
+
+    "madhya-pradesh": {
+        name: "Madhya Pradesh",
+        cities: [
+            "Bhopal",
+            "Indore",
+            "Jabalpur",
+            "Gwalior",
+            "Ujjain",
+            "Sagar",
+            "Rewa",
+            "Satna",
+            "Dewas",
+            "Ratlam",
+            "Burhanpur",
+            "Khandwa",
+            "Chhindwara",
+            "Morena",
+            "Bhind",
+            "Shivpuri",
+            "Vidisha",
+            "Sehore",
+            "Singrauli",
+            "Mandsaur",
+            "Neemuch",
+            "Damoh",
+            "Katni",
+            "Itarsi",
+            "Hoshangabad",
+            "Betul",
+            "Guna",
+            "Datia",
+            "Mandla",
+            "Balaghat"
+        ]
+    },
+
+
+    "maharashtra": {
+        name: "Maharashtra",
+        cities: [
+            "Mumbai",
+            "Pune",
+            "Nagpur",
+            "Nashik",
+            "Thane",
+            "Aurangabad",
+            "Navi Mumbai",
+            "Kolhapur",
+            "Solapur",
+            "Amravati",
+            "Nanded",
+            "Sangli",
+            "Jalgaon",
+            "Akola",
+            "Latur",
+            "Dhule",
+            "Ahmednagar",
+            "Chandrapur",
+            "Parbhani",
+            "Beed",
+            "Bhiwandi",
+            "Malegaon",
+            "Satara",
+            "Ratnagiri",
+            "Wardha",
+            "Yavatmal",
+            "Gondia",
+            "Bhusawal",
+            "Baramati",
+            "Panvel"
+        ]
+    },
+
+
+    "manipur": {
+        name: "Manipur",
+        cities: [
+            "Imphal",
+            "Thoubal",
+            "Bishnupur",
+            "Churachandpur",
+            "Ukhrul",
+            "Senapati",
+            "Tamenglong",
+            "Kakching",
+            "Jiribam",
+            "Moreh"
+        ]
+    },
+
+
+    "meghalaya": {
+        name: "Meghalaya",
+        cities: [
+            "Shillong",
+            "Tura",
+            "Nongstoin",
+            "Jowai",
+            "Williamnagar",
+            "Baghmara",
+            "Nongpoh",
+            "Mairang",
+            "Khliehriat"
+        ]
+    },
+
+
+    "mizoram": {
+        name: "Mizoram",
+        cities: [
+            "Aizawl",
+            "Lunglei",
+            "Champhai",
+            "Kolasib",
+            "Serchhip",
+            "Lawngtlai",
+            "Saiha",
+            "Mamit"
+        ]
+    },
+
+
+    "nagaland": {
+        name: "Nagaland",
+        cities: [
+            "Kohima",
+            "Dimapur",
+            "Mokokchung",
+            "Tuensang",
+            "Wokha",
+            "Mon",
+            "Zunheboto",
+            "Phek",
+            "Kiphire",
+            "Longleng",
+            "Chumoukedima",
+            "Niuland"
+        ]
+    },
+
+
+    "odisha": {
+        name: "Odisha",
+        cities: [
+            "Bhubaneswar",
+            "Cuttack",
+            "Rourkela",
+            "Berhampur",
+            "Sambalpur",
+            "Puri",
+            "Balasore",
+            "Baripada",
+            "Bhadrak",
+            "Jharsuguda",
+            "Bargarh",
+            "Koraput",
+            "Rayagada",
+            "Angul",
+            "Dhenkanal",
+            "Jajpur",
+            "Kendrapara",
+            "Paradip",
+            "Balangir",
+            "Boudh",
+            "Nabarangpur"
+        ]
+    },
+
+
+    "punjab": {
+        name: "Punjab",
+        cities: [
+            "Ludhiana",
+            "Amritsar",
+            "Jalandhar",
+            "Patiala",
+            "Bathinda",
+            "Mohali",
+            "Pathankot",
+            "Hoshiarpur",
+            "Moga",
+            "Batala",
+            "Abohar",
+            "Malerkotla",
+            "Khanna",
+            "Phagwara",
+            "Muktsar",
+            "Barnala",
+            "Sangrur",
+            "Firozpur",
+            "Faridkot",
+            "Kapurthala",
+            "Tarn Taran",
+            "Rajpura"
+        ]
+    },
+
+
+    "rajasthan": {
+        name: "Rajasthan",
+        cities: [
+            "Jaipur",
+            "Jodhpur",
+            "Kota",
+            "Udaipur",
+            "Ajmer",
+            "Bikaner",
+            "Alwar",
+            "Bharatpur",
+            "Bhilwara",
+            "Sikar",
+            "Sri Ganganagar",
+            "Pali",
+            "Kishangarh",
+            "Beawar",
+            "Tonk",
+            "Barmer",
+            "Chittorgarh",
+            "Hanumangarh",
+            "Dausa",
+            "Bundi",
+            "Jaisalmer",
+            "Nagaur",
+            "Sawai Madhopur",
+            "Jhunjhunu",
+            "Banswara",
+            "Dungarpur",
+            "Pratapgarh",
+            "Rajsamand",
+            "Karauli",
+            "Dholpur"
+        ]
+    },
+
+
+    "sikkim": {
+        name: "Sikkim",
+        cities: [
+            "Gangtok",
+            "Namchi",
+            "Gyalshing",
+            "Mangan",
+            "Singtam",
+            "Rangpo",
+            "Jorethang"
+        ]
+    },
+
+
+    "tamil-nadu": {
+        name: "Tamil Nadu",
+        cities: [
+            "Chennai",
+            "Coimbatore",
+            "Madurai",
+            "Tiruchirappalli",
+            "Salem",
+            "Tiruppur",
+            "Erode",
+            "Vellore",
+            "Thoothukudi",
+            "Tirunelveli",
+            "Dindigul",
+            "Thanjavur",
+            "Hosur",
+            "Nagercoil",
+            "Kanchipuram",
+            "Karur",
+            "Cuddalore",
+            "Sivakasi",
+            "Kumbakonam",
+            "Rajapalayam",
+            "Pudukkottai",
+            "Nagapattinam",
+            "Namakkal",
+            "Dharmapuri",
+            "Krishnagiri",
+            "Villupuram",
+            "Ramanathapuram",
+            "Virudhunagar",
+            "Ariyalur",
+            "Perambalur"
+        ]
+    },
+
+
+    "telangana": {
+        name: "Telangana",
+        cities: [
+            "Hyderabad",
+            "Warangal",
+            "Nizamabad",
+            "Karimnagar",
+            "Khammam",
+            "Ramagundam",
+            "Mahbubnagar",
+            "Nalgonda",
+            "Adilabad",
+            "Suryapet",
+            "Miryalaguda",
+            "Siddipet",
+            "Jagtial",
+            "Mancherial",
+            "Kamareddy",
+            "Kothagudem",
+            "Bodhan",
+            "Vikarabad",
+            "Wanaparthy",
+            "Nagarkurnool"
+        ]
+    },
+
+
+    "tripura": {
+        name: "Tripura",
+        cities: [
+            "Agartala",
+            "Udaipur",
+            "Dharmanagar",
+            "Kailasahar",
+            "Ambassa",
+            "Belonia",
+            "Khowai",
+            "Teliamura",
+            "Sabroom"
+        ]
+    },
+
+
+    "uttar-pradesh": {
+        name: "Uttar Pradesh",
+        cities: [
+            "Lucknow",
+            "Kanpur",
+            "Ghaziabad",
+            "Agra",
+            "Varanasi",
+            "Prayagraj",
+            "Meerut",
+            "Noida",
+            "Gorakhpur",
+            "Bareilly",
+            "Aligarh",
+            "Moradabad",
+            "Saharanpur",
+            "Mathura",
+            "Firozabad",
+            "Jhansi",
+            "Muzaffarnagar",
+            "Ayodhya",
+            "Rampur",
+            "Shahjahanpur",
+            "Farrukhabad",
+            "Etawah",
+            "Mirzapur",
+            "Bulandshahr",
+            "Sambhal",
+            "Amroha",
+            "Hardoi",
+            "Fatehpur",
+            "Raebareli",
+            "Orai",
+            "Sitapur",
+            "Bahraich",
+            "Basti",
+            "Azamgarh",
+            "Jaunpur",
+            "Gonda",
+            "Mainpuri",
+            "Hapur",
+            "Unnao",
+            "Barabanki"
+        ]
+    },
+
+
+    "uttarakhand": {
+        name: "Uttarakhand",
+        cities: [
+            "Dehradun",
+            "Haridwar",
+            "Rishikesh",
+            "Haldwani",
+            "Nainital",
+            "Roorkee",
+            "Rudrapur",
+            "Kashipur",
+            "Almora",
+            "Pithoragarh",
+            "Srinagar",
+            "Kotdwar",
+            "Ramnagar",
+            "Mussoorie",
+            "Khatima",
+            "Bageshwar",
+            "Chamoli",
+            "Uttarkashi",
+            "Tehri",
+            "Ranikhet"
+        ]
+    },
+
+
+    "west-bengal": {
+        name: "West Bengal",
+        cities: [
+            "Kolkata",
+            "Howrah",
+            "Durgapur",
+            "Siliguri",
+            "Asansol",
+            "Kharagpur",
+            "Haldia",
+            "Bardhaman",
+            "Malda",
+            "Baharampur",
+            "Raiganj",
+            "Jalpaiguri",
+            "Cooch Behar",
+            "Darjeeling",
+            "Krishnanagar",
+            "English Bazar",
+            "Serampore",
+            "Chandannagar",
+            "Bally",
+            "Barasat",
+            "Habra",
+            "Midnapore"
+        ]
+    },
+
+
+    "andaman-nicobar": {
+        name: "Andaman and Nicobar Islands",
+        cities: [
+            "Port Blair",
+            "Diglipur",
+            "Mayabunder",
+            "Rangat",
+            "Car Nicobar"
+        ]
+    },
+
+
+    "chandigarh": {
+        name: "Chandigarh",
+        cities: [
+            "Chandigarh"
+        ]
+    },
+
+
+    "dadra-nagar-haveli-daman-diu": {
+        name: "Dadra and Nagar Haveli and Daman and Diu",
+        cities: [
+            "Daman",
+            "Diu",
+            "Silvassa",
+            "Amli",
+            "Naroli"
+        ]
+    },
+
+
+    "delhi": {
+        name: "Delhi",
+        cities: [
+            "New Delhi",
+            "Delhi",
+            "Dwarka",
+            "Rohini",
+            "Saket",
+            "Karol Bagh",
+            "Shahdara",
+            "Najafgarh",
+            "Narela",
+            "Bawana"
+        ]
+    },
+
+
+    "jammu-kashmir": {
+        name: "Jammu and Kashmir",
+        cities: [
+            "Srinagar",
+            "Jammu",
+            "Anantnag",
+            "Baramulla",
+            "Kathua",
+            "Udhampur",
+            "Sopore",
+            "Kupwara",
+            "Rajouri",
+            "Poonch",
+            "Doda",
+            "Kishtwar",
+            "Pulwama",
+            "Budgam",
+            "Bandipora",
+            "Ganderbal"
+        ]
+    },
+
+
+    "ladakh": {
+        name: "Ladakh",
+        cities: [
+            "Leh",
+            "Kargil",
+            "Drass",
+            "Nubra",
+            "Diskit"
+        ]
+    },
+
+
+    "lakshadweep": {
+        name: "Lakshadweep",
+        cities: [
+            "Kavaratti",
+            "Agatti",
+            "Amini",
+            "Andrott",
+            "Kalpeni",
+            "Minicoy"
+        ]
+    },
+
+
+    "puducherry": {
+        name: "Puducherry",
+        cities: [
+            "Puducherry",
+            "Karaikal",
+            "Mahe",
+            "Yanam"
+        ]
+    }
+
+};
+
+
+/* =========================================
+   VERIFIED CONTACT DATABASE
+========================================= */
+
+const contacts = {
+
+
+    /* =====================================
+       BIHAR - PATNA
+    ===================================== */
+
+    "bihar|patna|municipal": {
+        organisation: "Patna Municipal Corporation",
+        number: "155304",
+        label: "Toll Free",
+        note: "Municipal grievance and solid-waste related assistance."
+    },
+
+    "bihar|patna|wet": {
+        organisation: "Patna Municipal Corporation",
+        number: "155304",
+        label: "Toll Free",
+        note: "Municipal waste-management assistance."
+    },
+
+    "bihar|patna|dry": {
+        organisation: "Patna Municipal Corporation",
+        number: "155304",
+        label: "Toll Free",
+        note: "Municipal waste-management assistance."
+    },
+
+    "bihar|patna|hazardous": {
+        organisation: "Patna Municipal Corporation",
+        number: "155304",
+        label: "Toll Free",
+        note: "Contact the municipal authority for guidance on appropriate handling."
+    },
+
+
+    /* =====================================
+       MAHARASHTRA - MUMBAI
+    ===================================== */
+
+    "maharashtra|mumbai|municipal": {
+        organisation: "Brihanmumbai Municipal Corporation",
+        number: "1916",
+        label: "Civic Complaint Helpline",
+        note: "BMC civic complaint helpline. Solid-waste complaints can be registered through this service."
+    },
+
+    "maharashtra|mumbai|wet": {
+        organisation: "Brihanmumbai Municipal Corporation",
+        number: "1916",
+        label: "Civic Complaint Helpline",
+        note: "For civic and waste-management complaints."
+    },
+
+    "maharashtra|mumbai|dry": {
+        organisation: "Brihanmumbai Municipal Corporation",
+        number: "1916",
+        label: "Civic Complaint Helpline",
+        note: "For civic and waste-management complaints."
+    },
+
+    "maharashtra|mumbai|construction": {
+        organisation: "Brihanmumbai Municipal Corporation",
+        number: "1916",
+        label: "Civic Complaint Helpline",
+        note: "Use the BMC civic complaint system for municipal assistance."
+    },
+
+
+    /* =====================================
+       DELHI - NEW DELHI
+    ===================================== */
+
+    "delhi|new delhi|municipal": {
+        organisation: "New Delhi Municipal Council",
+        number: "1533",
+        label: "Toll Free",
+        note: "NDMC citizen complaint and civic helpline."
+    },
+
+    "delhi|new delhi|wet": {
+        organisation: "New Delhi Municipal Council",
+        number: "1533",
+        label: "Toll Free",
+        note: "NDMC civic complaint helpline."
+    },
+
+    "delhi|new delhi|dry": {
+        organisation: "New Delhi Municipal Council",
+        number: "1533",
+        label: "Toll Free",
+        note: "NDMC civic complaint helpline."
+    },
+
+    "delhi|new delhi|construction": {
+        organisation: "New Delhi Municipal Council",
+        number: "1533",
+        label: "Toll Free",
+        note: "NDMC provides C&D waste collection-centre services."
+    },
+
+
+    /* =====================================
+       KARNATAKA - BENGALURU
+    ===================================== */
+
+    "karnataka|bengaluru|municipal": {
+        organisation: "Greater Bengaluru Authority",
+        number: "1533",
+        label: "Helpline",
+        note: "Greater Bengaluru Authority civic helpline."
+    },
+
+    "karnataka|bengaluru|wet": {
+        organisation: "Greater Bengaluru Authority",
+        number: "1533",
+        label: "Helpline",
+        note: "For civic and municipal assistance."
+    },
+
+    "karnataka|bengaluru|dry": {
+        organisation: "Greater Bengaluru Authority",
+        number: "1533",
+        label: "Helpline",
+        note: "For civic and municipal assistance."
+    },
+
+
+    /* =====================================
+       TAMIL NADU - CHENNAI
+    ===================================== */
+
+    "tamil-nadu|chennai|municipal": {
+        organisation: "Greater Chennai Corporation",
+        number: "1913",
+        label: "Complaint Helpline",
+        note: "Greater Chennai Corporation complaint number. Solid-waste and cleaning-related complaints are handled through the civic complaint system."
+    },
+
+    "tamil-nadu|chennai|wet": {
+        organisation: "Greater Chennai Corporation",
+        number: "1913",
+        label: "Complaint Helpline",
+        note: "For civic cleaning and solid-waste related complaints."
+    },
+
+    "tamil-nadu|chennai|dry": {
+        organisation: "Greater Chennai Corporation",
+        number: "1913",
+        label: "Complaint Helpline",
+        note: "For civic cleaning and solid-waste related complaints."
+    },
+
+
+    /* =====================================
+       TELANGANA - HYDERABAD
+    ===================================== */
+
+    "telangana|hyderabad|municipal": {
+        organisation: "Greater Hyderabad Municipal Corporation",
+        number: "21111111",
+        label: "GHMC Helpline",
+        note: "Greater Hyderabad Municipal Corporation civic helpline."
+    },
+
+    "telangana|hyderabad|wet": {
+        organisation: "Greater Hyderabad Municipal Corporation",
+        number: "21111111",
+        label: "GHMC Helpline",
+        note: "For municipal assistance."
+    },
+
+    "telangana|hyderabad|dry": {
+        organisation: "Greater Hyderabad Municipal Corporation",
+        number: "21111111",
+        label: "GHMC Helpline",
+        note: "For municipal assistance."
+    },
+
+
+    /* =====================================
+       GUJARAT - AHMEDABAD
+    ===================================== */
+
+    "gujarat|ahmedabad|municipal": {
+        organisation: "Ahmedabad Municipal Corporation",
+        number: "155303",
+        label: "Citizen Call Centre",
+        note: "AMC citizen call-centre helpline."
+    },
+
+    "gujarat|ahmedabad|wet": {
+        organisation: "Ahmedabad Municipal Corporation",
+        number: "155303",
+        label: "Citizen Call Centre",
+        note: "For municipal civic assistance."
+    },
+
+    "gujarat|ahmedabad|dry": {
+        organisation: "Ahmedabad Municipal Corporation",
+        number: "155303",
+        label: "Citizen Call Centre",
+        note: "For municipal civic assistance."
+    },
+
+
+    /* =====================================
+       GUJARAT - SURAT
+    ===================================== */
+
+    "gujarat|surat|municipal": {
+        organisation: "Surat Municipal Corporation",
+        number: "1800-123-8000",
+        label: "Toll Free",
+        note: "SMC complaint-registration helpline."
+    },
+
+    "gujarat|surat|wet": {
+        organisation: "Surat Municipal Corporation",
+        number: "1800-123-8000",
+        label: "Toll Free",
+        note: "SMC complaint-registration helpline."
+    },
+
+    "gujarat|surat|dry": {
+        organisation: "Surat Municipal Corporation",
+        number: "1800-123-8000",
+        label: "Toll Free",
+        note: "SMC complaint-registration helpline."
+    },
+
+    "gujarat|surat|construction": {
+        organisation: "Surat Municipal Corporation",
+        number: "1800-212-2829",
+        label: "Toll Free",
+        note: "Dedicated Construction & Demolition Waste helpline."
+    },
+
+    "gujarat|surat|hazardous": {
+        organisation: "Surat Municipal Corporation",
+        number: "1800-123-8000",
+        label: "Toll Free",
+        note: "General municipal complaint helpline. Ask for appropriate hazardous-waste guidance."
+    },
+
+
+    /* =====================================
+       MADHYA PRADESH - INDORE
+    ===================================== */
+
+    "madhya-pradesh|indore|municipal": {
+        organisation: "Indore Municipal Corporation",
+        number: "07314071717",
+        label: "Municipal Helpline",
+        note: "Indore Municipal Corporation civic and waste-management assistance."
+    },
+
+    "madhya-pradesh|indore|wet": {
+        organisation: "Indore Municipal Corporation",
+        number: "07314071717",
+        label: "Municipal Helpline",
+        note: "For municipal waste-management assistance."
+    },
+
+    "madhya-pradesh|indore|dry": {
+        organisation: "Indore Municipal Corporation",
+        number: "07314071717",
+        label: "Municipal Helpline",
+        note: "For municipal waste-management assistance."
+    },
+
+
+    /* =====================================
+       WEST BENGAL - KOLKATA
+    ===================================== */
+
+    "west-bengal|kolkata|municipal": {
+        organisation: "Kolkata Municipal Corporation",
+        number: "155360",
+        label: "Civic Helpline",
+        note: "KMC civic and solid-waste related assistance."
+    },
+
+    "west-bengal|kolkata|wet": {
+        organisation: "Kolkata Municipal Corporation",
+        number: "155360",
+        label: "Civic Helpline",
+        note: "For civic and solid-waste related complaints."
+    },
+
+    "west-bengal|kolkata|dry": {
+        organisation: "Kolkata Municipal Corporation",
+        number: "155360",
+        label: "Civic Helpline",
+        note: "For civic and solid-waste related complaints."
+    },
+
+
+    /* =====================================
+       ASSAM - GUWAHATI
+    ===================================== */
+
+    "assam|guwahati|municipal": {
+        organisation: "Guwahati Municipal Corporation",
+        number: "08811007000",
+        label: "Municipal Helpline",
+        note: "Guwahati civic and municipal assistance."
+    },
+
+    "assam|guwahati|wet": {
+        organisation: "Guwahati Municipal Corporation",
+        number: "08811007000",
+        label: "Municipal Helpline",
+        note: "For municipal waste-management assistance."
+    },
+
+    "assam|guwahati|dry": {
+        organisation: "Guwahati Municipal Corporation",
+        number: "08811007000",
+        label: "Municipal Helpline",
+        note: "For municipal waste-management assistance."
+    },
+
+
+    /* =====================================
+       PUNJAB - LUDHIANA
+    ===================================== */
+
+    "punjab|ludhiana|municipal": {
+        organisation: "Ludhiana Municipal Corporation",
+        number: "0161-2976475",
+        label: "Municipal Helpline",
+        note: "Municipal civic and waste-management assistance."
+    },
+
+    "punjab|ludhiana|wet": {
+        organisation: "Ludhiana Municipal Corporation",
+        number: "0161-2976475",
+        label: "Municipal Helpline",
+        note: "For municipal waste-management assistance."
+    },
+
+    "punjab|ludhiana|dry": {
+        organisation: "Ludhiana Municipal Corporation",
+        number: "0161-2976476",
+        label: "Municipal Helpline",
+        note: "For municipal waste-management assistance."
+    },
+
+
+    /* =====================================
+       KERALA - KOCHI
+    ===================================== */
+
+    "kerala|kochi|municipal": {
+        organisation: "Kochi Municipal Corporation",
+        number: "0484-2369007",
+        label: "Municipal Helpline",
+        note: "Kochi Municipal Corporation civic assistance."
+    },
+
+    "kerala|kochi|wet": {
+        organisation: "Kochi Municipal Corporation",
+        number: "0484-2369007",
+        label: "Municipal Helpline",
+        note: "For municipal waste-management assistance."
+    },
+
+    "kerala|kochi|dry": {
+        organisation: "Kochi Municipal Corporation",
+        number: "0484-2369007",
+        label: "Municipal Helpline",
+        note: "For municipal waste-management assistance."
+    },
+
+
+    /* =====================================
+       MAHARASHTRA - NANDED
+    ===================================== */
+
+    "maharashtra|nanded|municipal": {
+        organisation: "Nanded-Waghala Municipal Corporation",
+        number: "18002334949",
+        label: "Toll Free",
+        note: "Municipal civic assistance."
+    },
+
+
+    /* =====================================
+       RAJASTHAN - JAIPUR
+    ===================================== */
+
+    "rajasthan|jaipur|municipal": {
+        organisation: "Rajasthan Pollution Control Board",
+        number: "0141-2716877",
+        label: "Waste Management Helpline",
+        note: "Waste-management related assistance through the Rajasthan Pollution Control Board."
+    },
+
+    "rajasthan|jaipur|hazardous": {
+        organisation: "Rajasthan Pollution Control Board",
+        number: "0141-2716877",
+        label: "Waste Management Helpline",
+        note: "Contact for waste-management and pollution-control guidance."
+    },
+
+
+    /* =====================================
+       DELHI - GENERAL MCD
+    ===================================== */
+
+    "delhi|delhi|municipal": {
+        organisation: "Municipal Corporation of Delhi",
+        number: "155305",
+        label: "Civic Helpline",
+        note: "MCD civic complaint and municipal assistance."
+    },
+
+    "delhi|delhi|wet": {
+        organisation: "Municipal Corporation of Delhi",
+        number: "155305",
+        label: "Civic Helpline",
+        note: "For municipal waste-management assistance."
+    },
+
+    "delhi|delhi|dry": {
+        organisation: "Municipal Corporation of Delhi",
+        number: "155305",
+        label: "Civic Helpline",
+        note: "For municipal waste-management assistance."
+    },
+
+
+    /* =====================================
+       CHANDIGARH
+    ===================================== */
+
+    "chandigarh|chandigarh|municipal": {
+        organisation: "Chandigarh Administration",
+        number: "112",
+        label: "Integrated Emergency Helpline",
+        note: "General integrated helpline. Use for urgent assistance; this is not a waste-specific number."
+    },
+
+
+    /* =====================================
+       E-WASTE - NATIONAL
+    ===================================== */
+
+    "global|ewaste": {
+        organisation: "CPCB E-Waste Help Desk",
+        number: "011-43102467",
+        label: "E-Waste Help Desk",
+        note: "Technical queries related to the E-Waste EPR portal and e-waste management."
+    }
+
+};
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const stateSelect =
+    document.getElementById("stateSelect");
+
+const citySelect =
+    document.getElementById("citySelect");
+
+const wasteSelect =
+    document.getElementById("wasteSelect");
+
+const result =
+    document.getElementById("helplineResult");
+
+
+/* =========================================
+   POPULATE STATES
+========================================= */
+
+Object.entries(locations)
+    .sort((a, b) =>
+        a[1].name.localeCompare(b[1].name)
+    )
+    .forEach(([key, state]) => {
+
+        const option =
+            document.createElement("option");
+
+        option.value = key;
+        option.textContent = state.name;
+
+        stateSelect.appendChild(option);
+
+    });
+
+
+/* =========================================
+   STATE CHANGE
+========================================= */
+
+stateSelect.addEventListener("change", function () {
+
+    const selectedState =
+        locations[this.value];
+
+
+    citySelect.innerHTML =
+        `<option value="">
+            Select your city
+        </option>`;
+
+
+    wasteSelect.innerHTML =
+        `<option value="">
+            Select city first
+        </option>`;
+
+
+    citySelect.disabled = true;
+    wasteSelect.disabled = true;
+
+
+    if (!selectedState) {
+
+        showPlaceholder();
+        return;
+
+    }
+
+
+    selectedState.cities
+        .slice()
+        .sort((a, b) =>
+            a.localeCompare(b)
+        )
+        .forEach(city => {
+
+            const option =
+                document.createElement("option");
+
+            option.value =
+                city.toLowerCase();
+
+            option.textContent =
+                city;
+
+            citySelect.appendChild(option);
+
+        });
+
+
+    citySelect.disabled = false;
+
+    showPlaceholder();
+
+});
+
+
+/* =========================================
+   CITY CHANGE
+========================================= */
+
+citySelect.addEventListener("change", function () {
+
+    wasteSelect.innerHTML =
+        `<option value="">
+            Select waste type
+        </option>`;
+
+
+    if (!this.value) {
+
+        wasteSelect.disabled = true;
+
+        showPlaceholder();
+
+        return;
+
+    }
+
+
+    Object.entries(wasteTypes)
+        .forEach(([key, name]) => {
+
+            const option =
+                document.createElement("option");
+
+            option.value = key;
+
+            option.textContent = name;
+
+            wasteSelect.appendChild(option);
+
+        });
+
+
+    wasteSelect.disabled = false;
+
+    showPlaceholder();
+
+});
+
+
+/* =========================================
+   WASTE CHANGE
+========================================= */
+
+wasteSelect.addEventListener("change", function () {
+
+    if (!this.value) {
+
+        showPlaceholder();
+
+        return;
+
+    }
+
+
+    const state =
+        stateSelect.value;
+
+    const city =
+        citySelect.value;
+
+
+    const exactKey =
+        `${state}|${city}|${this.value}`;
+
+
+    const globalKey =
+        `global|${this.value}`;
+
+
+    const contact =
+        contacts[exactKey] ||
+        contacts[globalKey];
+
+
+    if (contact) {
+
+        showContact(contact);
+
+    } else {
+
+        showUnavailable();
+
+    }
+
+});
+
+
+/* =========================================
+   SHOW CONTACT
+========================================= */
+
+function showContact(data) {
+
+    result.innerHTML = `
+
+        <div class="helpline-card">
+
+            <div class="result-top">
+
+                <span class="verified-label">
+                    AVAILABLE CONTACT
+                </span>
+
+                <span class="phone-icon">
+                    ☎
+                </span>
+
+            </div>
+
+
+            <p class="result-category">
+                ${data.organisation}
+            </p>
+
+
+            <h2>
+                ${data.number}
+            </h2>
+
+
+            <div class="helpline-meta">
+
+                <strong>
+                    ${data.label}
+                </strong>
+
+                <span>
+                    ${data.organisation}
+                </span>
+
+            </div>
+
+
+            <p class="result-note">
+                ${data.note}
+            </p>
+
+
+            <a
+                href="tel:${data.number.replace(/[^0-9+]/g, '')}"
+                class="call-button">
+
+                Call Now
+
+            </a>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================
+   NO VERIFIED CONTACT
+========================================= */
+
+function showUnavailable() {
+
+    result.innerHTML = `
+
+        <div class="result-placeholder">
+
+            <div class="result-icon">
+                !
+            </div>
+
+            <h2>
+                Local contact not available yet
+            </h2>
+
+            <p>
+                We don't have a verified city-specific
+                contact for this waste type yet.
+                Please contact your local municipal
+                authority instead of relying on an
+                unverified number.
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================================
+   PLACEHOLDER
+========================================= */
+
+function showPlaceholder() {
+
+    result.innerHTML = `
+
+        <div class="result-placeholder">
+
+            <div class="result-icon">
+                ☎
+            </div>
+
+            <h2>
+                Find your waste helpline
+            </h2>
+
+            <p>
+                Select your state, city and waste type
+                to see the available contact information.
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+</script>
+
+
+<!-- =========================================
+     COMMON ECOSORT SCRIPT
+========================================= -->
+
+<script src="script.js"></script>
+
+
+</body>
+</html>

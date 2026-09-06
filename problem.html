@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>The Problem | EcoSort AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =========================================
+           PROBLEM PAGE
+           ========================================= */
+
+        .problem-page {
+            min-height: 100vh;
+            padding: 150px 9% 100px;
+        }
+
+        /* =========================================
+           HERO
+           ========================================= */
+
+        .problem-hero {
+            max-width: 1050px;
+            margin: 0 auto 120px;
+        }
+
+        .problem-hero .eyebrow {
+            margin-bottom: 25px;
+        }
+
+        .problem-hero h1 {
+            max-width: 950px;
+            font-size: clamp(58px, 8vw, 118px);
+            line-height: 0.92;
+            letter-spacing: -5px;
+            margin: 0 0 35px;
+        }
+
+        .problem-hero h1 span {
+            color: #72d5b2;
+        }
+
+        .problem-lead {
+            max-width: 780px;
+            font-size: 20px;
+            line-height: 1.75;
+            opacity: 0.7;
+        }
+
+
+        /* =========================================
+           BIG PROBLEM STATEMENT
+           ========================================= */
+
+        .problem-statement {
+            max-width: 1050px;
+            margin: 0 auto 120px;
+            padding: 60px;
+            border-radius: 32px;
+
+            background: #162126;
+            border: 1px solid rgba(114, 213, 178, 0.13);
+
+            position: relative;
+            overflow: hidden;
+        }
+
+        .problem-statement::before {
+            content: "01";
+            position: absolute;
+            right: 40px;
+            top: 20px;
+
+            font-size: 170px;
+            font-weight: 900;
+            line-height: 1;
+
+            color: rgba(114, 213, 178, 0.045);
+        }
+
+        .statement-label {
+            position: relative;
+            z-index: 1;
+
+            font-size: 12px;
+            letter-spacing: 3px;
+            color: #72d5b2;
+            font-weight: 700;
+
+            margin-bottom: 25px;
+        }
+
+        .problem-statement h2 {
+            position: relative;
+            z-index: 1;
+
+            max-width: 850px;
+
+            font-size: clamp(35px, 5vw, 65px);
+            line-height: 1.05;
+            letter-spacing: -3px;
+
+            margin: 0 0 25px;
+        }
+
+        .problem-statement h2 span {
+            color: #72d5b2;
+        }
+
+        .problem-statement p {
+            position: relative;
+            z-index: 1;
+
+            max-width: 750px;
+
+            font-size: 18px;
+            line-height: 1.75;
+            opacity: 0.68;
+        }
+
+
+        /* =========================================
+           CONFUSION GRID
+           ========================================= */
+
+        .confusion-section {
+            max-width: 1050px;
+            margin: 0 auto 120px;
+        }
+
+        .section-top {
+            margin-bottom: 50px;
+        }
+
+        .section-top h2 {
+            font-size: clamp(38px, 5vw, 65px);
+            line-height: 1;
+            letter-spacing: -3px;
+            margin: 15px 0 0;
+        }
+
+        .section-top h2 span {
+            color: #72d5b2;
+        }
+
+        .confusion-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .confusion-card {
+            min-height: 270px;
+            padding: 32px;
+
+            border-radius: 26px;
+
+            background: #141d22;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .confusion-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(114, 213, 178, 0.25);
+        }
+
+        .confusion-card:nth-child(2),
+        .confusion-card:nth-child(4) {
+            background: #203f35;
+        }
+
+        .card-number {
+            font-size: 13px;
+            letter-spacing: 2px;
+            color: #72d5b2;
+            font-weight: 700;
+            margin-bottom: 45px;
+        }
+
+        .confusion-card h3 {
+            font-size: 28px;
+            margin: 0 0 15px;
+        }
+
+        .confusion-card p {
+            font-size: 15px;
+            line-height: 1.7;
+            opacity: 0.65;
+            max-width: 430px;
+        }
+
+
+        /* =========================================
+           WHO IS AFFECTED
+           ========================================= */
+
+        .affected-section {
+            max-width: 1050px;
+            margin: 0 auto 120px;
+        }
+
+        .affected-intro {
+            max-width: 700px;
+            margin-bottom: 50px;
+        }
+
+        .affected-intro p {
+            font-size: 18px;
+            line-height: 1.75;
+            opacity: 0.65;
+        }
+
+        .affected-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+        }
+
+        .affected-card {
+            min-height: 290px;
+
+            padding: 28px;
+            border-radius: 24px;
+
+            background: #141d22;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+
+            text-decoration: none;
+            color: inherit;
+
+            display: flex;
+            flex-direction: column;
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .affected-card:hover {
+            transform: translateY(-8px);
+            border-color: rgba(114, 213, 178, 0.3);
+        }
+
+        .affected-card:nth-child(2),
+        .affected-card:nth-child(4) {
+            background: #203f35;
+        }
+
+        .affected-icon {
+            font-size: 34px;
+            margin-bottom: auto;
+        }
+
+        .affected-card h3 {
+            font-size: 23px;
+            margin: 25px 0 10px;
+        }
+
+        .affected-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            opacity: 0.65;
+        }
+
+        .explore-link {
+            margin-top: 20px;
+            font-size: 13px;
+            font-weight: 700;
+            color: #72d5b2;
+        }
+
+
+        /* =========================================
+           THE COST OF CONFUSION
+           ========================================= */
+
+        .cost-section {
+            max-width: 1050px;
+            margin: 0 auto 120px;
+        }
+
+        .cost-box {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 60px;
+
+            padding: 60px;
+
+            border-radius: 32px;
+
+            background: linear-gradient(
+                135deg,
+                #14221f,
+                #172126
+            );
+
+            border: 1px solid rgba(114, 213, 178, 0.1);
+        }
+
+        .cost-box h2 {
+            font-size: clamp(38px, 5vw, 62px);
+            line-height: 1;
+            letter-spacing: -3px;
+            margin: 15px 0 0;
+        }
+
+        .cost-box h2 span {
+            color: #72d5b2;
+        }
+
+        .cost-points {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+
+        .cost-point {
+            display: grid;
+            grid-template-columns: 45px 1fr;
+            gap: 15px;
+
+            padding-bottom: 25px;
+
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .cost-point:last-child {
+            border-bottom: none;
+        }
+
+        .cost-icon {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: rgba(114, 213, 178, 0.1);
+            color: #72d5b2;
+        }
+
+        .cost-point h3 {
+            margin: 0 0 7px;
+            font-size: 18px;
+        }
+
+        .cost-point p {
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.65;
+            opacity: 0.6;
+        }
+
+
+        /* =========================================
+           SOLUTION TRANSITION
+           ========================================= */
+
+        .problem-ending {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 30px 0 50px;
+        }
+
+        .problem-ending h2 {
+            font-size: clamp(42px, 6vw, 76px);
+            line-height: 1;
+            letter-spacing: -4px;
+            margin: 20px 0 25px;
+        }
+
+        .problem-ending h2 span {
+            color: #72d5b2;
+        }
+
+        .problem-ending p {
+            max-width: 680px;
+            margin: 0 auto 35px;
+
+            font-size: 18px;
+            line-height: 1.75;
+            opacity: 0.65;
+        }
+
+
+        /* =========================================
+           LIGHT MODE
+           ========================================= */
+
+        body:not(.dark-mode) .problem-statement,
+        body:not(.dark-mode) .confusion-card,
+        body:not(.dark-mode) .affected-card {
+            background: #ffffff;
+            border-color: rgba(30, 80, 100, 0.1);
+        }
+
+        body:not(.dark-mode) .confusion-card:nth-child(2),
+        body:not(.dark-mode) .confusion-card:nth-child(4),
+        body:not(.dark-mode) .affected-card:nth-child(2),
+        body:not(.dark-mode) .affected-card:nth-child(4) {
+            background: #dff4eb;
+        }
+
+        body:not(.dark-mode) .cost-box {
+            background: #eaf6ff;
+            border-color: rgba(50, 120, 150, 0.12);
+        }
+
+        body:not(.dark-mode) .cost-point {
+            border-color: rgba(20, 80, 110, 0.08);
+        }
+
+
+        /* =========================================
+           RESPONSIVE
+           ========================================= */
+
+        @media (max-width: 900px) {
+
+            .problem-page {
+                padding: 120px 6% 70px;
+            }
+
+            .affected-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cost-box {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                padding: 40px;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            .problem-hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .problem-statement {
+                padding: 35px 28px;
+            }
+
+            .confusion-grid,
+            .affected-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cost-box {
+                padding: 35px 28px;
+            }
+        }
+    </style>
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         HAMBURGER
+         ========================================= -->
+
+    <button class="hamburger" id="menuButton" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+
+    <!-- =========================================
+         SIDEBAR
+         ========================================= -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <button class="close-menu" id="closeMenu" aria-label="Close menu">
+            ×
+        </button>
+
+        <div class="sidebar-logo">
+            <span>♻</span>
+            EcoSort AI
+        </div>
+
+        <div class="sidebar-label">
+            EXPLORE
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                <span>01</span>
+                Home
+            </a>
+
+            <a href="introduction.html">
+                <span>02</span>
+                Introduction
+            </a>
+
+            <a href="idea.html">
+                <span>03</span>
+                The Idea
+            </a>
+
+            <a href="story.html">
+                <span>04</span>
+                Behind the Idea
+            </a>
+
+            <a href="problem.html" class="active">
+                <span>05</span>
+                The Problem
+            </a>
+
+            
+
+            <a href="contact.html">
+    <span>06</span>
+    Find Help
+</a>
+
+<a href="portal.html"
+   class="portal-link">
+
+    <span>07</span>
+    Segregate Waste
+
+</a>
+
+        </nav>
+
+
+        <div class="sidebar-bottom">
+
+            <div class="sidebar-label">
+                APPEARANCE
+            </div>
+
+            <button class="theme-toggle" id="themeToggle">
+
+                <span id="themeIcon">☀</span>
+
+                <span id="themeText">
+                    Light Mode
+                </span>
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- OVERLAY -->
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+
+
+    <!-- =========================================
+         MAIN
+         ========================================= -->
+
+    <main class="problem-page">
+
+
+        <!-- HERO -->
+
+        <section class="problem-hero">
+
+            <div class="eyebrow">
+                THE PROBLEM
+            </div>
+
+            <h1>
+                Good intentions
+                <span>aren't enough.</span>
+            </h1>
+
+            <p class="problem-lead">
+                Most people encounter waste every single day.
+                The challenge is not always a lack of concern.
+                Often, it is the uncertainty of knowing what belongs
+                where and what should happen next.
+            </p>
+
+        </section>
+
+
+        <!-- BIG STATEMENT -->
+
+        <section class="problem-statement">
+
+            <div class="statement-label">
+                01 / THE CORE ISSUE
+            </div>
+
+            <h2>
+                When waste is mixed,
+                <span>everything gets harder.</span>
+            </h2>
+
+            <p>
+                Different types of waste need different handling.
+                When they are thrown together, the opportunity to
+                recover, recycle, compost, or safely process materials
+                can become more difficult.
+            </p>
+
+        </section>
+
+
+        <!-- CONFUSION -->
+
+        <section class="confusion-section">
+
+            <div class="section-top">
+
+                <div class="eyebrow">
+                    WHERE THE CONFUSION STARTS
+                </div>
+
+                <h2>
+                    It looks simple.
+                    <span>Until it isn't.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="confusion-grid">
+
+                <div class="confusion-card">
+
+                    <div class="card-number">
+                        01 / EVERYDAY ITEMS
+                    </div>
+
+                    <h3>
+                        Not everything is obvious.
+                    </h3>
+
+                    <p>
+                        A banana peel feels easy to classify.
+                        But batteries, chargers, food-stained packaging,
+                        mixed-material items, and other everyday objects
+                        can leave people unsure.
+                    </p>
+
+                </div>
+
+
+                <div class="confusion-card">
+
+                    <div class="card-number">
+                        02 / INFORMATION GAP
+                    </div>
+
+                    <h3>
+                        The answer isn't always nearby.
+                    </h3>
+
+                    <p>
+                        Waste rules and disposal options can vary.
+                        People may not know where to look for reliable,
+                        understandable guidance at the moment they need it.
+                    </p>
+
+                </div>
+
+
+                <div class="confusion-card">
+
+                    <div class="card-number">
+                        03 / HABIT
+                    </div>
+
+                    <h3>
+                        When unsure, people guess.
+                    </h3>
+
+                    <p>
+                        And when the correct choice feels complicated,
+                        the easiest option can become throwing the item
+                        into whatever bin is closest.
+                    </p>
+
+                </div>
+
+
+                <div class="confusion-card">
+
+                    <div class="card-number">
+                        04 / THE RESULT
+                    </div>
+
+                    <h3>
+                        Mixed waste creates more work.
+                    </h3>
+
+                    <p>
+                        Once different waste streams are mixed,
+                        sorting, recovery, recycling, composting,
+                        and appropriate handling can become more difficult.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- WHO IS AFFECTED -->
+
+        <section class="affected-section">
+
+            <div class="affected-intro">
+
+                <div class="eyebrow">
+                    WHO IS AFFECTED?
+                </div>
+
+                <h2 class="section-top">
+                    The problem doesn't
+                    <span>stop at the bin.</span>
+                </h2>
+
+                <p>
+                    Waste segregation connects everyday decisions
+                    to a much larger ecosystem. Different people
+                    experience the consequences in different ways.
+                </p>
+
+            </div>
+
+
+            <div class="affected-grid">
+
+                <a href="households.html" class="affected-card">
+
+                    <div class="affected-icon">
+                        🏠
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Households
+                        </h3>
+
+                        <p>
+                            People need simple guidance for making
+                            better waste decisions at home.
+                        </p>
+
+                        <div class="explore-link">
+                            Explore →
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <a href="students.html" class="affected-card">
+
+                    <div class="affected-icon">
+                        🎓
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Students
+                        </h3>
+
+                        <p>
+                            Students can learn practical sustainability
+                            through everyday actions.
+                        </p>
+
+                        <div class="explore-link">
+                            Explore →
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <a href="communities.html" class="affected-card">
+
+                    <div class="affected-icon">
+                        🏙️
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Communities
+                        </h3>
+
+                        <p>
+                            Better segregation can support cleaner,
+                            more organized local waste practices.
+                        </p>
+
+                        <div class="explore-link">
+                            Explore →
+                        </div>
+
+                    </div>
+
+                </a>
+
+
+                <a href="waste-ecosystem.html" class="affected-card">
+
+                    <div class="affected-icon">
+                        ♻️
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Waste Ecosystem
+                        </h3>
+
+                        <p>
+                            Segregated waste is easier to direct toward
+                            appropriate recovery and treatment pathways.
+                        </p>
+
+                        <div class="explore-link">
+                            Explore →
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- COST OF CONFUSION -->
+
+        <section class="cost-section">
+
+            <div class="cost-box">
+
+                <div>
+
+                    <div class="eyebrow">
+                        WHY IT MATTERS
+                    </div>
+
+                    <h2>
+                        One small
+                        <span>decision.</span>
+                        Bigger impact.
+                    </h2>
+
+                </div>
+
+
+                <div class="cost-points">
+
+                    <div class="cost-point">
+
+                        <div class="cost-icon">
+                            ♻
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Recoverable materials can be lost
+                            </h3>
+
+                            <p>
+                                When useful materials are mixed with
+                                other waste, recovering them can become
+                                more difficult.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="cost-point">
+
+                        <div class="cost-icon">
+                            🌱
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Organic waste needs different handling
+                            </h3>
+
+                            <p>
+                                Food and other biodegradable waste can
+                                follow different processing pathways
+                                from dry recyclable materials.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="cost-point">
+
+                        <div class="cost-icon">
+                            ⚡
+                        </div>
+
+                        <div>
+
+                            <h3>
+                                Special waste needs special attention
+                            </h3>
+
+                            <p>
+                                Items such as electronic waste and
+                                other special waste streams may require
+                                dedicated collection or disposal routes.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ENDING -->
+
+        <section class="problem-ending">
+
+            <div class="eyebrow">
+                WHERE ECOSORT AI COMES IN
+            </div>
+
+            <h2>
+                Make the right choice
+                <span>easier.</span>
+            </h2>
+
+            <p>
+                The goal isn't to make people memorize complicated
+                waste rules. It is to give them a simple starting point:
+                show the item, understand its likely category,
+                and get guidance for the next step.
+            </p>
+
+            <a href="portal.html" class="primary-button">
+                Try EcoSort AI →
+            </a>
+
+        </section>
+
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-logo">
+            ♻ EcoSort AI
+        </div>
+
+        <div>
+            AI for Sustainability
+        </div>
+
+        <div>
+            SDG 12
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

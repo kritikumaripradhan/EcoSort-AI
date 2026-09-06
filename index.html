@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>EcoSort AI</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         LEFT HAMBURGER
+    ====================================================== -->
+
+    <button
+        class="hamburger"
+        id="menuButton"
+        aria-label="Open menu">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+    </button>
+
+
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside
+        class="sidebar"
+        id="sidebar">
+
+
+        <!-- CLOSE BUTTON -->
+
+        <button
+            class="close-menu"
+            id="closeMenu"
+            aria-label="Close menu">
+
+            ×
+
+        </button>
+
+
+
+        <!-- LOGO -->
+
+        <div class="sidebar-logo">
+
+            <span>♻</span>
+
+            EcoSort AI
+
+        </div>
+
+
+
+        <!-- NAVIGATION LABEL -->
+
+        <div class="sidebar-label">
+
+            EXPLORE
+
+        </div>
+
+
+
+        <!-- NAVIGATION -->
+
+        <nav>
+
+
+            <!-- HOME -->
+
+            <a
+                href="index.html"
+                class="active">
+
+                <span>01</span>
+
+                Home
+
+            </a>
+
+
+
+            <!-- INTRODUCTION -->
+
+            <a href="introduction.html">
+
+                <span>02</span>
+
+                Introduction
+
+            </a>
+
+
+
+            <!-- THE IDEA -->
+
+            <a href="idea.html">
+
+                <span>03</span>
+
+                The Idea
+
+            </a>
+
+
+
+            <!-- BEHIND THE IDEA -->
+
+            <a href="story.html">
+
+                <span>04</span>
+
+                Behind the Idea
+
+            </a>
+
+
+
+            <!-- THE PROBLEM -->
+
+            <a href="problem.html">
+
+                <span>05</span>
+
+                The Problem
+
+            </a>
+
+
+
+            <!-- FIND HELP -->
+
+            <a href="contact.html">
+
+                <span>06</span>
+
+                Find Help
+
+            </a>
+
+
+
+            <!-- SEGREGATE WASTE -->
+
+            <a
+                href="portal.html"
+                class="portal-link">
+
+                <span>07</span>
+
+                Segregate Waste
+
+            </a>
+
+
+        </nav>
+
+
+
+        <!-- =================================================
+             APPEARANCE
+        ================================================== -->
+
+        <div class="sidebar-bottom">
+
+
+            <div class="sidebar-label">
+
+                APPEARANCE
+
+            </div>
+
+
+
+            <div class="theme-control">
+
+
+                <button
+                    class="theme-switch"
+                    id="themeToggle"
+                    type="button"
+                    aria-label="Toggle theme">
+
+
+                    <span class="switch-track">
+
+                        <span class="switch-thumb"></span>
+
+                    </span>
+
+
+                </button>
+
+
+
+                <span id="themeText">
+
+                    Dark Mode
+
+                </span>
+
+
+            </div>
+
+
+        </div>
+
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         OVERLAY
+    ====================================================== -->
+
+    <div
+        class="menu-overlay"
+        id="menuOverlay">
+
+    </div>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main>
+
+
+
+        <!-- =================================================
+             HERO
+        ================================================== -->
+
+        <section class="hero">
+
+
+            <!-- HERO LEFT -->
+
+            <div class="hero-left">
+
+
+                <div class="eyebrow">
+
+                    AI FOR A SUSTAINABLE FUTURE
+
+                </div>
+
+
+
+                <h1>
+
+                    Know Your
+
+                    <br>
+
+                    <span>Waste.</span>
+
+                </h1>
+
+
+
+                <h2>
+
+                    Sort It Right.
+
+                </h2>
+
+
+
+                <p class="hero-description">
+
+                    EcoSort AI helps you understand everyday waste,
+                    identify where it belongs, and make more
+                    responsible disposal decisions with the help
+                    of artificial intelligence.
+
+                </p>
+
+
+
+                <!-- HERO BUTTONS -->
+
+                <div class="hero-buttons">
+
+
+                    <a
+                        href="portal.html"
+                        class="primary-button">
+
+                        ♻
+
+                        Identify My Waste
+
+                    </a>
+
+
+
+                    <a
+                        href="introduction.html"
+                        class="secondary-button">
+
+                        Discover EcoSort
+
+                        <span>→</span>
+
+                    </a>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 HERO RIGHT / VISUAL
+            ================================================== -->
+
+            <div class="hero-right">
+
+
+                <div class="glow glow-pink"></div>
+
+                <div class="glow glow-teal"></div>
+
+
+
+                <!-- RECYCLE ORBIT -->
+
+                <div class="recycle-orbit">
+
+
+                    <div class="recycle-circle">
+
+
+                        <div class="recycle-symbol">
+
+                            ♻
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FLOATING CARD - PLASTIC
+                ================================================== -->
+
+                <div
+                    class="floating-card plastic-card">
+
+
+                    <span class="floating-icon">
+
+                        🧴
+
+                    </span>
+
+
+                    <div>
+
+
+                        <small>
+
+                            Example
+
+                        </small>
+
+
+                        <strong>
+
+                            Plastic Bottle
+
+                        </strong>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FLOATING CARD - ORGANIC
+                ================================================== -->
+
+                <div
+                    class="floating-card organic-card">
+
+
+                    <span class="floating-icon">
+
+                        🍌
+
+                    </span>
+
+
+                    <div>
+
+
+                        <small>
+
+                            Category
+
+                        </small>
+
+
+                        <strong>
+
+                            Organic Waste
+
+                        </strong>
+
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     FLOATING CARD - E-WASTE
+                ================================================== -->
+
+                <div
+                    class="floating-card ewaste-card">
+
+
+                    <span class="floating-icon">
+
+                        🔌
+
+                    </span>
+
+
+                    <div>
+
+
+                        <small>
+
+                            Category
+
+                        </small>
+
+
+                        <strong>
+
+                            E-Waste
+
+                        </strong>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             INTRO STRIP
+        ====================================================== -->
+
+        <section class="intro-strip">
+
+
+            <div class="strip-number">
+
+                01
+
+            </div>
+
+
+
+            <div class="strip-content">
+
+
+                <div class="eyebrow">
+
+                    WHY ECOSORT AI?
+
+                </div>
+
+
+
+                <h3>
+
+                    Because the hardest part
+                    of waste segregation is
+                    often simply knowing
+
+                    <span>
+                        where something belongs.
+                    </span>
+
+                </h3>
+
+
+            </div>
+
+
+
+            <a
+                href="introduction.html"
+                class="arrow-button">
+
+                →
+
+            </a>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             THREE CONCEPTS
+        ====================================================== -->
+
+        <section class="concept-section">
+
+
+            <div class="section-heading">
+
+
+                <div class="eyebrow">
+
+                    A SIMPLE APPROACH
+
+                </div>
+
+
+
+                <h2>
+
+                    See it.
+
+                    <span>
+
+                        Understand it.
+
+                    </span>
+
+                    Act on it.
+
+                </h2>
+
+
+            </div>
+
+
+
+            <!-- CONCEPT GRID -->
+
+            <div class="concept-grid">
+
+
+                <!-- =================================================
+                     CARD 01
+                ================================================== -->
+
+                <div class="concept-card">
+
+
+                    <div class="concept-number">
+
+                        01
+
+                    </div>
+
+
+
+                    <div class="concept-icon">
+
+                        ◉
+
+                    </div>
+
+
+
+                    <h3>
+
+                        Identify
+
+                    </h3>
+
+
+
+                    <p>
+
+                        Show EcoSort AI an image of
+                        the waste item you're unsure about.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CARD 02
+                ================================================== -->
+
+                <div class="concept-card featured">
+
+
+                    <div class="concept-number">
+
+                        02
+
+                    </div>
+
+
+
+                    <div class="concept-icon">
+
+                        ✦
+
+                    </div>
+
+
+
+                    <h3>
+
+                        Classify
+
+                    </h3>
+
+
+
+                    <p>
+
+                        AI helps determine the likely
+                        waste category of the item.
+
+                    </p>
+
+
+                </div>
+
+
+
+                <!-- =================================================
+                     CARD 03
+                ================================================== -->
+
+                <div class="concept-card">
+
+
+                    <div class="concept-number">
+
+                        03
+
+                    </div>
+
+
+
+                    <div class="concept-icon">
+
+                        ♻
+
+                    </div>
+
+
+
+                    <h3>
+
+                        Act
+
+                    </h3>
+
+
+
+                    <p>
+
+                        Get practical guidance for
+                        responsible disposal.
+
+                    </p>
+
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =====================================================
+             FINAL CTA
+        ====================================================== -->
+
+        <section class="home-final">
+
+
+            <div class="eyebrow">
+
+                READY WHEN YOU ARE
+
+            </div>
+
+
+
+            <h2>
+
+                Let's make
+
+                <span>
+
+                    every item count.
+
+                </span>
+
+            </h2>
+
+
+
+            <a
+                href="portal.html"
+                class="primary-button">
+
+                Open EcoSort Portal →
+
+            </a>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer>
+
+
+        <div class="footer-logo">
+
+            ♻ EcoSort AI
+
+        </div>
+
+
+
+        <div>
+
+            AI for Sustainability
+
+        </div>
+
+
+
+        <div>
+
+            SDG 12
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- =====================================================
+         COMMON JAVASCRIPT
+    ====================================================== -->
+
+    <script src="script.js"></script>
+
+
+</body>
+
+</html>
